@@ -1,20 +1,34 @@
-﻿namespace CityApp;
+﻿using Microsoft.Data.SqlClient;
+
+namespace CityApp;
+
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
 
 	public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
-		CounterLabel.Text = $"Current count: {count}";
+    private void Button_Clicked(object sender, EventArgs e)
+    {
+		try
+		{
+			string serverDbName = "cityappdb";
+			string serverName = "192.168.1.208";
+			string serverUsername = "admin";
+			string serverPassword = "admin";
 
-		SemanticScreenReader.Announce(CounterLabel.Text);
-	}
+			string sqlconn = $"Data Source={serverName};Initial Catalog={serverDbName};User Id={serverUsername};Password={serverPassword};Encrypt=False;Trusted_Connection=true";
+			SqlConnection sqlConnection = new SqlConnection(sqlconn);
+			sqlConnection.Open();
+		}
+        catch(Exception ex)
+        {
+			Console.WriteLine(ex.Message);
+			throw;
+        }
+    }
 }
 
