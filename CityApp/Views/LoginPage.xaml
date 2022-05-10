@@ -29,9 +29,9 @@
                 <Entry Grid.Row="2" x:Name="UsernameEntry" Text="{Binding Username}" Placeholder="Email" PlaceholderColor="Black"/>
                 <Entry Grid.Row="3" x:Name="PasswordEntry" Text="{Binding Password}" Grid.Column="0" Placeholder="Password" IsPassword="True" PlaceholderColor="Black" TextChanged="PasswordEntry_TextChanged"/>
 
-                <Image Grid.Row="3" HorizontalOptions="End" HeightRequest="30" Grid.Column="0" x:Name="imgShowHide">
+                <Image Grid.Row="3" HorizontalOptions="End" HeightRequest="30" Grid.Column="0" x:Name="ImgShowHide">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                        <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1"/>
                     </Image.GestureRecognizers>
                 </Image>
 

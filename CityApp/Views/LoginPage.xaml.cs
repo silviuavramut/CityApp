@@ -1,9 +1,10 @@
+using CityApp.Services;
 using System.Threading.Tasks;
 namespace CityApp;
 
 public partial class LoginPage : ContentPage
 {
-    Services.Service _service = new Services.Service();
+    Service Services = new Service();
 	public LoginPage()
 	{
 		InitializeComponent();
@@ -12,12 +13,12 @@ public partial class LoginPage : ContentPage
 
     private void PasswordEntry_TextChanged(object sender, TextChangedEventArgs e)
     {
-        imgShowHide.Source = string.IsNullOrEmpty(PasswordEntry.Text) ? null : "eyeicon.png";
-        imgShowHide.HeightRequest = 30;
+        ImgShowHide.Source = string.IsNullOrEmpty(PasswordEntry.Text) ? null : "eyeicon.png";
+        ImgShowHide.HeightRequest = 30;
 
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+    private void ShowPass(object sender, EventArgs e)
     {
 
     }
@@ -29,7 +30,7 @@ public partial class LoginPage : ContentPage
 
     private async void btnLogin_Clicked(object sender, EventArgs e)
     {
-        var response = await _service.LoginAsync(UsernameEntry.Text, PasswordEntry.Text);
+        var response = await Services.LoginAsync(UsernameEntry.Text, PasswordEntry.Text);
 
     }
 }

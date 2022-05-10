@@ -8,8 +8,6 @@
         <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*"
               Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
 
-            <Button Text="Connect to server" HorizontalOptions="CenterAndExpand" TextColor="Black" WidthRequest="100" BackgroundColor="#ff8a65" Clicked="Button_Clicked"/>
-
         </Grid>
     </ScrollView>
 </ContentPage>

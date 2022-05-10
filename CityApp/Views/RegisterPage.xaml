@@ -1,34 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CityApp.Models"
              x:Class="CityApp.RegisterPage"
              Title="RegisterPage"
              BackgroundColor="White">
-    <StackLayout>
-        <Grid>
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="10,10,0,10" Padding="0,30,0,0">
+            <Label Text="Register page" FontSize="Medium" HorizontalOptions="Center" TextColor="Black"/>
+        </StackLayout>
+
+        <Grid VerticalOptions="Center" Grid.Row="1" Margin="20,0,20,0">
+
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
-            
-            <StackLayout Grid.Row="0">
-                <Entry Placeholder="Firstname" FontSize="16" x:Name="EntryFirstname"/>
-            </StackLayout>
-            <StackLayout Grid.Row="1">
-                <Entry Placeholder="Lastname" FontSize="16" x:Name="EntryLastname"/>
-            </StackLayout>
-            <StackLayout Grid.Row="2">
-                <Entry Placeholder="Email" FontSize="16" x:Name="EntryEmail"/>
-            </StackLayout>
-            <StackLayout Grid.Row="3">
-                <Entry Placeholder="Password" IsPassword="True" FontSize="16" x:Name="EntryPassword"/>
-            </StackLayout>
-            <StackLayout Grid.Row="4">
-                <Button Text="Register" HorizontalOptions="CenterAndExpand" TextColor="Black" WidthRequest="100" BackgroundColor="#ff8a65" Clicked="Button_Clicked"/>
-            </StackLayout>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1" Text="{Binding Message}" x:Name="lblErorrMsg" IsVisible="false" TextColor="Black" BackgroundColor="Transparent"/>
+            <Entry Grid.Row="2" x:Name="UsernameEntry" Text="{Binding Username}" Placeholder="Username" PlaceholderColor="Black" ReturnType="Next" Keyboard="Text" FontSize="Medium">
+
+            </Entry>
+            <Entry Grid.Row="3" x:Name="EmailEntry" Text="{Binding EmailID}" Placeholder="Email" PlaceholderColor="Black" ReturnType="Next" Keyboard="Email" FontSize="Medium">
+                <Entry.Behaviors>
+                    <local:EmailValidationBehavior></local:EmailValidationBehavior>
+                </Entry.Behaviors>
+            </Entry>
+
+            <ActivityIndicator x:Name="process_img" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" VerticalOptions="Center" IsEnabled="True"></ActivityIndicator>
+            <Entry Grid.Row="4" x:Name="PasswordEntry" Text="{Binding Password}" TextChanged="PasswordEntry_TextChanged" ReturnType="Next" IsPassword="True" Placeholder="Password" PlaceholderColor="Black" FontSize="Medium"/>
+            <Image Grid.Row="4" HorizontalOptions="End" HeightRequest="30" Grid.Column="0" x:Name="ImgShowHide">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Entry Grid.Row="5" x:Name="PhoneEntry" Text="{Binding Phonenumber}" Placeholder="Phonenumber" PlaceholderColor="Black" ReturnType="Done" Keyboard="Telephone" FontSize="Medium" MaxLength="10">
+                <Entry.Behaviors>
+                    <local:NumberValidationBehavior></local:NumberValidationBehavior>
+                </Entry.Behaviors>
+            </Entry>
+
+            <Button Grid.Row="6" Text="Register" Clicked="btnRegistration_Clicked" BackgroundColor="#ff8a65" TextColor="Black" HeightRequest="50" VerticalOptions="Center"/>
+
         </Grid>
-    </StackLayout>
+       
+    </Grid>
+
 </ContentPage>

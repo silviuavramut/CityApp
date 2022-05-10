@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -47,6 +48,38 @@ namespace CityApp.Services
                 }
             });
             return accesToken;
+        }
+        
+
+        public async Task<bool> RegisterUserAsync(string email,string password,string phonenumber,string username)
+        {
+            bool Response = false;
+            await Task.Run(() =>
+            {
+
+                var client = new HttpClient();
+
+                var model = new Models.RegisterBindingModel
+                {
+                    Email = email,
+                    Username = username,
+                    Password = password,
+                    ConfirmPassword = password,
+                    Phonenumber = phonenumber,
+                };
+
+                var json = JsonConvert.SerializeObject(model);
+                HttpContent httpContent = new StringContent(json);
+                httpContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                var response = client.PostAsync("http://192.168.1.208:45455/" + "api/Account/Register", httpContent);
+                var mystring = response.GetAwaiter().GetResult();
+
+                if (response.Result.IsSuccessStatusCode)
+                {
+                    Response = true;
+                }
+            });
+            return Response;
         }
     }
 }
