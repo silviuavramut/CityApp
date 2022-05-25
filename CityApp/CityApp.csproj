@@ -33,12 +33,12 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		
-		<MauiIcon Include="Resources\appicon.svg" IsAppIcon="true" />
 
+				<MauiIcon Include="Resources\Images\logoresized.png" />
+
+				
 		<!-- Splash Screen -->
-		
-		<MauiSplashScreen Include="Resources\splashscreencityapp.svg" Color="#ff8a65" />
+		<MauiSplashScreen Include="Resources\splashscreen.png" Resize="false" />
 		
 		
 		<!-- Images -->
@@ -54,11 +54,23 @@
 	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<!-- Required - WinUI does not yet have buildTransitive for everything -->
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.3" />
-		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.1" />
+		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.3.1" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\logoresized.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Icons\events.svg" />
+	  <None Remove="Resources\Icons\home.svg" />
+	  <None Remove="Resources\Icons\notifications.svg" />
+	  <None Remove="Resources\Icons\profile.svg" />
+	  <None Remove="Resources\Icons\search.svg" />
+	  <None Remove="Resources\Images\basic_home.svg" />
+	  <None Remove="Resources\Images\logoresized.png" />
 	  <None Remove="Resources\logo.png" />
+	  <None Remove="Resources\splashscreen.png" />
 	</ItemGroup>
 
 
@@ -77,19 +89,48 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\EventsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\LandingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\MenuShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NotificationsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ReportIncidentPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewIncidentsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Tables\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Icons\events.svg" />
+	  <MauiImage Include="Resources\Icons\home.svg" />
+	  <MauiImage Include="Resources\Icons\notifications.svg" />
+	  <MauiImage Include="Resources\Icons\profile.svg" />
+	  <MauiImage Include="Resources\Icons\search.svg" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -105,6 +146,15 @@
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Update="Resources\Images\appicon.svg" Resize="true" />
+	  <MauiImage Update="Resources\Images\logo.png" BaseSize="64,64" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Resources\splashscreencityapp.svg" Color="#ff8a65" />
 	</ItemGroup>
 
 

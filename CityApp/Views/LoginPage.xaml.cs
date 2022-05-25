@@ -11,26 +11,15 @@ public partial class LoginPage : ContentPage
 	}
 
 
-    private void PasswordEntry_TextChanged(object sender, TextChangedEventArgs e)
+    private async void btnLogin_Clicked(object sender, EventArgs e)
     {
-        ImgShowHide.Source = string.IsNullOrEmpty(PasswordEntry.Text) ? null : "eyeicon.png";
-        ImgShowHide.HeightRequest = 30;
-
-    }
-
-    private void ShowPass(object sender, EventArgs e)
-    {
+        var response = await Services.LoginAsync(UsernameEntry.Text, PasswordEntry.Text);
+        await Navigation.PushModalAsync(new Views.MenuShell());
 
     }
 
     private void btnRegistration_Clicked(object sender, EventArgs e)
     {
-
-    }
-
-    private async void btnLogin_Clicked(object sender, EventArgs e)
-    {
-        var response = await Services.LoginAsync(UsernameEntry.Text, PasswordEntry.Text);
 
     }
 }

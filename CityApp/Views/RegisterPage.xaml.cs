@@ -12,17 +12,6 @@ public partial class RegisterPage : ContentPage
     }
 
 
-
-    private void PasswordEntry_TextChanged(object sender, TextChangedEventArgs e)
-    {
-
-    }
-
-    private void ShowPass(object sender, EventArgs e)
-    {
-
-    }
-
     private async void btnRegistration_Clicked(object sender, EventArgs e)
     {
         process_img.IsRunning = true;

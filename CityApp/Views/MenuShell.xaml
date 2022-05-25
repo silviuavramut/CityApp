@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityApp.Views.MenuShell"
+             xmlns:local="clr-namespace:CityApp"
+             Title="MenuShell"
+       TitleColor="Black"
+       BackgroundColor="#ff8a65"
+       >
+
+    <TabBar>
+        <Tab Title="Home" Icon="home" >
+            <ShellContent ContentTemplate="{DataTemplate local:HomePage}"/>
+        </Tab>
+        <Tab Title="Search" Icon="search">
+            <ShellContent ContentTemplate="{DataTemplate local:ViewIncidentsPage}"/>
+        </Tab>
+        <Tab Title="Events" Icon="events">
+            <ShellContent ContentTemplate="{DataTemplate local:EventsPage}"/>
+        </Tab>
+        <Tab Title="Notifications" Icon="notifications">
+            <ShellContent ContentTemplate="{DataTemplate local:NotificationsPage}"/>
+        </Tab>
+        <Tab Title="Profile" Icon="profile">
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}"/>
+        </Tab>
+    </TabBar>
+    
+</Shell>

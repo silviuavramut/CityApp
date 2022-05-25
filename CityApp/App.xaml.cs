@@ -6,9 +6,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(new LandingPage())
-		{
-			BarBackgroundColor = Color.FromHex("#ff8a65"),
-        };
+		MainPage = new Views.MenuShell();
 	}
 }

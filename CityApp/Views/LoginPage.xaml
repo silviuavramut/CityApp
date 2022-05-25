@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CityApp.LoginPage"
              Title="LoginPage"
-             BackgroundColor="White">
+             BackgroundColor="White"
+                >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,15 +28,9 @@
 
                 <Label Grid.Row="1" Text="" x:Name="lblErrorMsg" HorizontalTextAlignment="Center" VerticalTextAlignment="End" IsVisible="False"/>
                 <Entry Grid.Row="2" x:Name="UsernameEntry" Text="{Binding Username}" Placeholder="Email" PlaceholderColor="Black"/>
-                <Entry Grid.Row="3" x:Name="PasswordEntry" Text="{Binding Password}" Grid.Column="0" Placeholder="Password" IsPassword="True" PlaceholderColor="Black" TextChanged="PasswordEntry_TextChanged"/>
+            <Entry Grid.Row="3" x:Name="PasswordEntry" Text="{Binding Password}" Grid.Column="0" Placeholder="Password" IsPassword="True" PlaceholderColor="Black"/>
 
-                <Image Grid.Row="3" HorizontalOptions="End" HeightRequest="30" Grid.Column="0" x:Name="ImgShowHide">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1"/>
-                    </Image.GestureRecognizers>
-                </Image>
-
-                <Button Text="Login" x:Name="btnLogin" BackgroundColor="#ff8a65" Clicked="btnLogin_Clicked" TextColor="Black" HeightRequest="50" VerticalOptions="Start" Grid.Row="4"/>
+            <Button Text="Login" x:Name="btnLogin" BackgroundColor="#ff8a65" Clicked="btnLogin_Clicked" TextColor="Black" HeightRequest="50" VerticalOptions="Start" Grid.Row="4"/>
                 <ActivityIndicator x:Name="process_img" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" VerticalOptions="Center" IsEnabled="True" />
                 <Label x:Name="forgetLabel" Text="Forgot your password?" TextColor="#ff8a65" HorizontalTextAlignment="End" HeightRequest="50" Grid.Row="5"/>
                 <Grid Grid.Row="5">
@@ -51,7 +46,8 @@
 
             <StackLayout Grid.Row="2" BackgroundColor="#ff8a65">
                 <Label HeightRequest="1" BackgroundColor="#e3e3e3"/>
-                <Button Text="Don't have an account? Register" x:Name="btnRegistration" BackgroundColor="#ff8a65" Clicked="btnRegistration_Clicked" TextColor="Black" HeightRequest="50"/>
+                <Button Text="Don't have an account? Register" x:Name="btnRegistration" BackgroundColor="#ff8a65" Clicked="btnRegistration_Clicked"
+                        TextColor="Black" HeightRequest="50"/>
             </StackLayout>
 
             <ContentView x:Name="popUpImageView" BackgroundColor="#ff8a65" Padding="10,0" IsVisible="false" AbsoluteLayout.LayoutBounds="0,0,1,1">

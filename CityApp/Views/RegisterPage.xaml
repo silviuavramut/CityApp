@@ -46,12 +46,8 @@
             </Entry>
 
             <ActivityIndicator x:Name="process_img" HeightRequest="50" WidthRequest="50" HorizontalOptions="Center" VerticalOptions="Center" IsEnabled="True"></ActivityIndicator>
-            <Entry Grid.Row="4" x:Name="PasswordEntry" Text="{Binding Password}" TextChanged="PasswordEntry_TextChanged" ReturnType="Next" IsPassword="True" Placeholder="Password" PlaceholderColor="Black" FontSize="Medium"/>
-            <Image Grid.Row="4" HorizontalOptions="End" HeightRequest="30" Grid.Column="0" x:Name="ImgShowHide">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ShowPass" NumberOfTapsRequired="1"/>
-                </Image.GestureRecognizers>
-            </Image>
+            <Entry Grid.Row="4" x:Name="PasswordEntry" Text="{Binding Password}" ReturnType="Next" IsPassword="True" Placeholder="Password" PlaceholderColor="Black" FontSize="Medium"/>
+
 
             <Entry Grid.Row="5" x:Name="PhoneEntry" Text="{Binding Phonenumber}" Placeholder="Phonenumber" PlaceholderColor="Black" ReturnType="Done" Keyboard="Telephone" FontSize="Medium" MaxLength="10">
                 <Entry.Behaviors>
