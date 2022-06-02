@@ -2,12 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CityApp.HomePage"
-             Title="Home">
+             Title="Home"
+             >
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Button" TargetType="Button">
+                <Setter Property="HeightRequest" Value="42"/>
+                <Setter Property="TextColor" Value="#000000"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Margin" Value="70,8"/>
+            </Style>
 
-    <StackLayout>
-        <Label Text="Home"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
-
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <Frame BorderColor="Black" Grid.Row="0">
+            <StackLayout >
+            <Button
+                Text="Add an incident"
+                BackgroundColor="#ff8a65"
+                Style="{StaticResource Button}"
+                Clicked="redirectAddIncident"
+                />
+        </StackLayout>
+        </Frame>
+        <Frame BorderColor="Black" Grid.Row="1">
+        <StackLayout  >
+            <Label
+                BackgroundColor="Transparent"
+                Text="Lorem Ipsum"
+                Margin="50,8"
+                VerticalOptions="Center"
+                TextColor="#343434"
+                HorizontalOptions="Center"
+                Grid.Row="1"
+                />
+        </StackLayout>
+        </Frame>
+        <Frame BorderColor="Black" Grid.Row="2">
+        <StackLayout  >
+            <Label
+                BackgroundColor="Transparent"
+                Text="Lorem Ipsum"
+                Margin="50,8"
+                VerticalOptions="Center"
+                TextColor="#343434"
+                HorizontalOptions="Center"
+                Grid.Row="1"
+                />
+        </StackLayout>
+        </Frame>
+    </Grid>
 </ContentPage>

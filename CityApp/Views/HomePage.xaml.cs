@@ -6,4 +6,9 @@ public partial class HomePage : ContentPage
 	{
         InitializeComponent();
 	}
+
+    private async void redirectAddIncident(object sender, EventArgs e)
+    {
+        await Navigation.PushModalAsync(new ReportIncidentPage());
+    }
 }

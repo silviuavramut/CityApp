@@ -45,8 +45,6 @@
                 Grid.Row="1"
                 Clicked="redirectRegister"
                 />
-           
-
         </StackLayout>
     </Grid>
 </ContentPage>

@@ -4,8 +4,10 @@
              x:Class="CityApp.Views.MenuShell"
              xmlns:local="clr-namespace:CityApp"
              Title="MenuShell"
-       TitleColor="Black"
-       BackgroundColor="#ff8a65"
+             TitleColor="Black"
+             BackgroundColor="#ff8a65"
+             ForegroundColor="#ff8a65"
+       
        >
 
     <TabBar>

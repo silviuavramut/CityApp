@@ -29,13 +29,15 @@
 		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
+		<PackageIcon>logoresized.png</PackageIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<!-- App Icon -->
-
-				<MauiIcon Include="Resources\Images\logoresized.png" />
-
+		<MauiIcon Include="Resources\appicon.svg" Resize="true" />
+		<MauiIcon Include="Resources\appicon_round.svg">
+		  <Resize>true</Resize>
+		</MauiIcon>
 				
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\splashscreen.png" Resize="false" />
@@ -58,17 +60,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\appicon_round.svg" />
 	  <MauiImage Remove="Resources\Images\logoresized.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\appicon.svg" />
 	  <None Remove="Resources\Icons\events.svg" />
 	  <None Remove="Resources\Icons\home.svg" />
 	  <None Remove="Resources\Icons\notifications.svg" />
 	  <None Remove="Resources\Icons\profile.svg" />
 	  <None Remove="Resources\Icons\search.svg" />
+	  <None Remove="Resources\Images\appicon_round.svg" />
 	  <None Remove="Resources\Images\basic_home.svg" />
-	  <None Remove="Resources\Images\logoresized.png" />
 	  <None Remove="Resources\logo.png" />
 	  <None Remove="Resources\splashscreen.png" />
 	</ItemGroup>
@@ -86,6 +90,7 @@
 	  <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3.v110_xp" Version="1.1.14" />
 	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.0.7" />
 	  <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+	  <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -125,12 +130,25 @@
 	  <Folder Include="Tables\" />
 	</ItemGroup>
 
+
+
+
 	<ItemGroup>
 	  <MauiImage Include="Resources\Icons\events.svg" />
 	  <MauiImage Include="Resources\Icons\home.svg" />
 	  <MauiImage Include="Resources\Icons\notifications.svg" />
 	  <MauiImage Include="Resources\Icons\profile.svg" />
 	  <MauiImage Include="Resources\Icons\search.svg" />
+	</ItemGroup>
+
+
+
+
+	<ItemGroup>
+	  <None Include="..\..\..\..\Desktop\logoresized.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -149,7 +167,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Update="Resources\Images\appicon.svg" Resize="true" />
 	  <MauiImage Update="Resources\Images\logo.png" BaseSize="64,64" />
 	</ItemGroup>
 
@@ -157,10 +174,19 @@
 	  <None Update="Resources\splashscreencityapp.svg" Color="#ff8a65" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+	  <PackageReference Include="Xamarin.AndroidX.Browser">
+	    <Version>1.4.0.1</Version>
+	  </PackageReference>
+	</ItemGroup>
+
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
 		<OutputType>WinExe</OutputType>
 		<RuntimeIdentifier>win10-x64</RuntimeIdentifier>
 	</PropertyGroup>
+
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionCityAppHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 	
 </Project>

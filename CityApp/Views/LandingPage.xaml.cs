@@ -9,11 +9,11 @@ public partial class LandingPage : ContentPage
 
     private async void redirectRegister(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new RegisterPage());
+        await Navigation.PushModalAsync(new RegisterPage());
     }
 
     private async void redirectLogin(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new LoginPage());
+        await Navigation.PushModalAsync(new LoginPage());
     }
 }

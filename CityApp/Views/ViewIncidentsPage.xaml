@@ -4,8 +4,30 @@
              x:Class="CityApp.ViewIncidentsPage"
              Title="View Incidents">
     <StackLayout>
-        <Label Text="View Incidents"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+        <Button Text="View" Clicked="viewIncidents"></Button>
+        <ListView x:Name="IncidentListView" HasUnevenRows="True" Footer="">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                            <Label Text="{Binding Id}" 
+                                   TextColor="Black"></Label>
+                            <Label Text="{Binding Type}" 
+                                   TextColor="Black"
+                                   Grid.Row="1"></Label>
+                            <Label Text="{Binding Location}" 
+                                   TextColor="Black"
+                                   Grid.Row="2"></Label>
+                            <Label Text="{Binding Image}" 
+                                   TextColor="Black"
+                                   Grid.Row="3"></Label>
+                            <Label Text="{Binding Message}" 
+                                   TextColor="Black"
+                                   Grid.Row="4"></Label>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 </ContentPage>

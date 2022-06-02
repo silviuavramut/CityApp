@@ -3,9 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CityApp.ProfilePage"
              Title="Profile">
-    <StackLayout>
-        <Label Text="Profile"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+    <StackLayout VerticalOptions="End">
+        <Button  
+                    Text="Logout" 
+                    Clicked="Logout" 
+                    BackgroundColor="#ff8a65" 
+                    TextColor="Black" 
+                    HeightRequest="40" 
+                    VerticalOptions="Center" 
+                    FontSize="Default"
+                    WidthRequest="150"
+                    Margin="0,0,0,50"/>
     </StackLayout>
 </ContentPage>

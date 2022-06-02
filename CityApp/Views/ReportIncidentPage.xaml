@@ -3,9 +3,109 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CityApp.ReportIncidentPage"
              Title="ReportIncidentPage">
-    <StackLayout>
-        <Label Text="Report an incident"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-    </StackLayout>
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="10*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid VerticalOptions="Center" Grid.Row="1" Margin="20,0,20,0">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="1" 
+                   Text="{Binding ErrorMessage}" 
+                   x:Name="lblErorrMsg" 
+                   IsVisible="false" 
+                   TextColor="Black" 
+                   BackgroundColor="Transparent"/>
+            <!--<Entry Grid.Row="2" 
+                   x:Name="IncidentType" 
+                   Text="{Binding Type}" 
+                   Placeholder="Type of incident" 
+                   PlaceholderColor="Black" 
+                   ReturnType="Next" 
+                   Keyboard="Text" 
+                   FontSize="Medium">
+
+            </Entry>-->
+            <Picker Grid.Row="2" 
+                   x:Name="IncidentType"
+                    Title="Type of incident"
+                    FontSize="Medium"
+                    TextColor="Black">
+                <Picker.Items>
+                <x:String>Illegal parking</x:String>
+                <x:String>Stray animals</x:String>
+                <x:String>Vandalism</x:String>
+                </Picker.Items>
+ 
+            </Picker>
+            <Entry Grid.Row="3" 
+                   x:Name="IncidentLocation" 
+                   Text="{Binding Location}" 
+                   Placeholder="Location" 
+                   PlaceholderColor="Black" 
+                   ReturnType="Next" 
+                   Keyboard="Text" 
+                   FontSize="Medium">
+            </Entry>
+
+            <Entry Grid.Row="4" 
+                   x:Name="IncidentImage" 
+                   Text="{Binding Image}" 
+                   Placeholder="Image placeholder" 
+                   PlaceholderColor="Black" 
+                   ReturnType="Next" 
+                   Keyboard="Text" 
+                   FontSize="Medium">
+            </Entry>
+
+            <!--<Button Grid.Row="4" 
+                   Text="Pick an image"            
+                   FontSize="Medium"
+                   Clicked="PickAnImage" 
+                    />
+            <Image x:Name="resultImage"/>-->
+
+            <Entry Grid.Row="5" 
+                   x:Name="IncidentMessage" 
+                   Text="{Binding Message}" 
+                   Placeholder="Short message with details" 
+                   PlaceholderColor="Black" 
+                   ReturnType="Done" 
+                   Keyboard="Text" 
+                   FontSize="Medium"
+                   MaxLength="100"
+                   >
+            </Entry>
+
+            <Button Grid.Row="6" 
+                    Text="Send" 
+                    Clicked="addIncident" 
+                    BackgroundColor="#ff8a65" 
+                    TextColor="Black" 
+                    HeightRequest="50" 
+                    VerticalOptions="Center" 
+                    FontSize="Medium"
+                    x:Name="addIncidentButton"/>
+            
+        </Grid>
+
+    </Grid>
 </ContentPage>
