@@ -28,26 +28,18 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="1" 
+            <Label Grid.Row="1"
                    Text="{Binding ErrorMessage}" 
                    x:Name="lblErorrMsg" 
                    IsVisible="false" 
                    TextColor="Black" 
                    BackgroundColor="Transparent"/>
-            <!--<Entry Grid.Row="2" 
-                   x:Name="IncidentType" 
-                   Text="{Binding Type}" 
-                   Placeholder="Type of incident" 
-                   PlaceholderColor="Black" 
-                   ReturnType="Next" 
-                   Keyboard="Text" 
-                   FontSize="Medium">
-
-            </Entry>-->
-            <Picker Grid.Row="2" 
+            
+            <Picker Grid.Row="2"
                    x:Name="IncidentType"
                     Title="Type of incident"
                     FontSize="Medium"
+                    TitleColor="Black"
                     TextColor="Black">
                 <Picker.Items>
                 <x:String>Illegal parking</x:String>
@@ -56,32 +48,46 @@
                 </Picker.Items>
  
             </Picker>
-            <Entry Grid.Row="3" 
+            <StackLayout Grid.Row="3" Orientation="Horizontal" >
+                <Entry Grid.Row="3" 
                    x:Name="IncidentLocation" 
                    Text="{Binding Location}" 
                    Placeholder="Location" 
                    PlaceholderColor="Black" 
+                   TextColor="Black"    
                    ReturnType="Next" 
                    Keyboard="Text" 
-                   FontSize="Medium">
-            </Entry>
-
-            <Entry Grid.Row="4" 
-                   x:Name="IncidentImage" 
-                   Text="{Binding Image}" 
-                   Placeholder="Image placeholder" 
-                   PlaceholderColor="Black" 
-                   ReturnType="Next" 
-                   Keyboard="Text" 
-                   FontSize="Medium">
-            </Entry>
-
-            <!--<Button Grid.Row="4" 
-                   Text="Pick an image"            
                    FontSize="Medium"
-                   Clicked="PickAnImage" 
+                   WidthRequest="290"
+                   MaximumWidthRequest="200">
+                </Entry>
+                <ImageButton
+                    Source="getlocationicon"
+                   Margin="10,0,10,10"
+                   Clicked="GetLocation"
+                   WidthRequest="45"
+                   HeightRequest="30"
+/>
+            </StackLayout>
+
+
+            <StackLayout Grid.Row="4" Orientation="Horizontal" >
+                <Button 
+                   Text="Pick photo"            
+                   Margin="20,0,10,10"
+                   Clicked="PickAnImage"
+                   WidthRequest="150"
+                    BackgroundColor="#ff8a65" 
                     />
-            <Image x:Name="resultImage"/>-->
+            <Button 
+                   Text="Take photo"            
+                   Clicked="TakeImage"
+                Margin="10,0,10,10"
+                WidthRequest="150"
+                BackgroundColor="#ff8a65" 
+                    />
+            </StackLayout>
+            <Image x:Name="resultImage"/>
 
             <Entry Grid.Row="5" 
                    x:Name="IncidentMessage" 

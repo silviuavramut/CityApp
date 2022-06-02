@@ -6,6 +6,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new LandingPage();
+		MainPage = new ReportIncidentPage();
 	}
 }

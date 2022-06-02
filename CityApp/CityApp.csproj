@@ -67,6 +67,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\appicon.svg" />
 	  <None Remove="Resources\Icons\events.svg" />
+	  <None Remove="Resources\Icons\getLocationIcon.svg" />
 	  <None Remove="Resources\Icons\home.svg" />
 	  <None Remove="Resources\Icons\notifications.svg" />
 	  <None Remove="Resources\Icons\profile.svg" />
@@ -135,6 +136,7 @@
 
 	<ItemGroup>
 	  <MauiImage Include="Resources\Icons\events.svg" />
+	  <MauiImage Include="Resources\Icons\getlocationicon.svg" />
 	  <MauiImage Include="Resources\Icons\home.svg" />
 	  <MauiImage Include="Resources\Icons\notifications.svg" />
 	  <MauiImage Include="Resources\Icons\profile.svg" />
