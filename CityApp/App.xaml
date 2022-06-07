@@ -6,9 +6,13 @@
     <Application.Resources>
         <ResourceDictionary>
 
-            <Color x:Key="PrimaryColor">#512bdf</Color>
-            <Color x:Key="SecondaryColor">White</Color>
+            <Color x:Key="PrimaryColor">#ff8a65</Color>
+            <Color x:Key="SecondaryColor">Black</Color>
 
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#c75b39" />
+                <Setter Property="BarTextColor" Value="{StaticResource SecondaryColor}" />
+            </Style>
             <Style TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
                 <Setter Property="FontFamily" Value="OpenSansRegular" />

@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System;
 using System.IO;
+using CityApp.Views;
 
 namespace CityApp;
 
@@ -32,7 +33,7 @@ public partial class ReportIncidentPage : ContentPage
             {
                 lblErorrMsg.Text = string.Empty;
                 await DisplayAlert("Alert", "Added an incident sucessfully", "OK");
-                await Navigation.PushModalAsync(new HomePage());
+                await Navigation.PushModalAsync(new NavigationPage(new TabMenu()));
 
             }
             else

@@ -1,4 +1,6 @@
-﻿namespace CityApp;
+﻿using CityApp.Views;
+
+namespace CityApp;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new ReportIncidentPage();
+		MainPage = new NavigationPage(new TabMenu());
 	}
 }

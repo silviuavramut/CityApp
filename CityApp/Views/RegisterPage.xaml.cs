@@ -62,8 +62,5 @@ public partial class RegisterPage : ContentPage
         
     }
 
-    private void btnLogin_Clicked(object sender, EventArgs e)
-    {
 
-    }
 }

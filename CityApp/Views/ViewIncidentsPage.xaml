@@ -2,32 +2,57 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CityApp.ViewIncidentsPage"
-             Title="View Incidents">
-    <StackLayout>
-        <Button Text="View" Clicked="viewIncidents"></Button>
-        <ListView x:Name="IncidentListView" HasUnevenRows="True" Footer="">
-            <ListView.ItemTemplate>
+             xmlns:local="clr-namespace:CityApp.ViewModels"
+             xmlns:model="clr-namespace:CityApp.Models"
+             Title="Search">
+    <ContentPage.Content>
+        <CollectionView x:Name="IncidentsCollectionView">
+            <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
-                            <Label Text="{Binding Id}" 
-                                   TextColor="Black"></Label>
-                            <Label Text="{Binding Type}" 
-                                   TextColor="Black"
-                                   Grid.Row="1"></Label>
-                            <Label Text="{Binding Location}" 
-                                   TextColor="Black"
-                                   Grid.Row="2"></Label>
-                            <Label Text="{Binding Image}" 
-                                   TextColor="Black"
-                                   Grid.Row="3"></Label>
-                            <Label Text="{Binding Message}" 
-                                   TextColor="Black"
-                                   Grid.Row="4"></Label>
-                        </Grid>
-                    </ViewCell>
+                    <Frame Margin="0" Padding="5" BorderColor="LightGray" >
+                        
+                    <Grid Padding="3">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+
+                        </Grid.ColumnDefinitions>
+
+                            <Image Grid.RowSpan="3"
+                                   x:Name="imgsourcepopup"
+                       Source="https://img.freepik.com/free-vector/shining-circle-purple-lighting-isolated-dark-background_1441-2396.jpg"
+                       Aspect="AspectFill"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       Margin="0,0,10,0">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Grid.Column="1"
+                       Text="{Binding Type}"
+                               TextColor="Black"
+                       FontAttributes="Bold" />
+                        <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding Location}"
+                               TextColor="Black"
+                       VerticalOptions="End" />
+                        <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Text="{Binding Message}"
+                               TextColor="Black"
+                       VerticalOptions="End" 
+                               />
+                    </Grid>
+                    </Frame>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
 </ContentPage>

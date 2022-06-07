@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CityApp.Views.TabMenu"
+            xmlns:local="clr-namespace:CityApp"
+            xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            Title="TabMenu"
+            BarBackgroundColor="#ffbb93"
+            BarTextColor="black"
+            >
+    
+    <local:HomePage IconImageSource="home" />
+    <local:ViewIncidentsPage IconImageSource="search"/>
+    <local:EventsPage IconImageSource="events"/>
+    <local:NotificationsPage IconImageSource="notifications"/>
+    <local:ProfilePage IconImageSource="profile"/>
+</TabbedPage>

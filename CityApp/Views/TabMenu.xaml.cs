@@ -1,8 +1,8 @@
 namespace CityApp.Views;
 
-public partial class MenuShell : Shell
+public partial class TabMenu : TabbedPage
 {
-	public MenuShell()
+	public TabMenu()
 	{
 		InitializeComponent();
 	}

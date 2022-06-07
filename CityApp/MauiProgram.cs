@@ -1,11 +1,14 @@
-﻿namespace CityApp;
+﻿using CommunityToolkit.Maui;
+
+namespace CityApp;
 
 public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
-		builder
+        builder.UseMauiApp<App>().UseMauiCommunityToolkit();
+        builder
 			.UseMauiApp<App>()
 			.ConfigureFonts(fonts =>
 			{
