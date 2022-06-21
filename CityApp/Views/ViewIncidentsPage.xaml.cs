@@ -2,16 +2,16 @@ using CityApp.Services;
 using Microsoft.Data.SqlClient;
 using System.Text;
 using CommunityToolkit.Maui.Views;
-
+using CityApp.Models;
 
 namespace CityApp;
 public partial class ViewIncidentsPage : ContentPage
 {
     IncidentService incidentService = new IncidentService();
-
     public ViewIncidentsPage()
 	{
 		InitializeComponent();
+        
         LoadData();
 
     }
@@ -22,11 +22,6 @@ public partial class ViewIncidentsPage : ContentPage
         {
 
             var incidents = await incidentService.GetIncidentsAsync();
-            foreach (var inc in incidents)
-            {
-
-            }
-
             IncidentsCollectionView.ItemsSource = incidents;
             
         }
@@ -36,15 +31,16 @@ public partial class ViewIncidentsPage : ContentPage
         }
     }
 
-    public void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+    public async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
     {
 
-        var popup = new MyPopup();
 
+        var popup = new MyPopup();
         this.ShowPopup(popup);
 
 
     }
+
 
 
 }

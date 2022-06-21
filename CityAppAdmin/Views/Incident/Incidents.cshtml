@@ -1,0 +1,35 @@
+﻿@using System.Data
+@model IEnumerable<IncidentModel>
+
+@{
+    ViewData["Title"] = "See the incidents from the CityApp";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("Id")</th>
+            <th>@Html.DisplayName("Type")</th>
+            <th>@Html.DisplayName("Image")</th>
+            <th>@Html.DisplayName("Location")</th>
+            <th>@Html.DisplayName("Message")</th>
+            <th>@Html.DisplayName("Action")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var row in Model)
+        {
+          <tr>
+              <td>@row.Id</td>
+              <td>@row.Type</td>
+              <td><img alt="image" src="data:image/jpg;base64, @Convert.ToBase64String(row.Image)" height="200" width="200" /></td>
+              <td>@row.Location</td>
+              <td>@row.Message</td>
+              <td>
+                  <a class="btn btn-danger btn-sm" href="/Incident/Delete?id=@row.Id">Delete</a>
+              </td>
+          </tr>  
+        }
+    </tbody>
+
+</table>

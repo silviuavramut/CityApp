@@ -21,26 +21,18 @@
                 Aspect="AspectFill"
                 />
         </Frame>
-        <Frame BorderColor="Black" Grid.Row="1">
-            <Label
-                BackgroundColor="Transparent"
-
-                Margin="50,8"
-                VerticalOptions="Center"
-                TextColor="#343434"
-                HorizontalOptions="Center"
-                Grid.Row="1"
+        <Frame Padding="0" Margin="0" BorderColor="Black" Grid.Row="1">
+            <ImageButton
+                Source="placestoeatimagebutton"
+                Clicked="redirectPlacesToEat"
+                Aspect="AspectFill"
                 />
         </Frame>
-        <Frame BorderColor="Black" Grid.Row="2">
-            <Label
-                BackgroundColor="Transparent"
-                Text="Lorem Ipsum"
-                Margin="50,8"
-                VerticalOptions="Center"
-                TextColor="#343434"
-                HorizontalOptions="Center"
-                Grid.Row="1"
+        <Frame Padding="0" Margin="0" BorderColor="Black" Grid.Row="2">
+            <ImageButton
+                Source="placestoseeimagebutton"
+                Clicked="redirectPlacesToSee"
+                Aspect="AspectFill"
                 />
         </Frame>
     </Grid>

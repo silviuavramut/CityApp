@@ -1,0 +1,34 @@
+﻿@using System.Data
+@model IEnumerable<RestaurantModel>
+
+@{
+    ViewData["Title"] = "See the restaurants from the CityApp";
+}
+<a href="/Restaurant/AddNewRestaurant" class="btn btn-primary">Add an restaurant</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayName("Id")</th>
+            <th>@Html.DisplayName("Name")</th>
+            <th>@Html.DisplayName("Address")</th>
+            <th>@Html.DisplayName("Link")</th>
+            <th>@Html.DisplayName("Actions")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var row in Model)
+        {
+          <tr>
+              <td>@row.Id</td>
+              <td>@row.Name</td>
+              <td>@row.Address</td>
+              <td><a href="@row.Link">@row.Link</a></td>
+              <td>
+                  <a class="btn btn-primary btn-sm" href="/Restaurant/Edit?id=@row.Id">Edit</a>
+                  <a class="btn btn-danger btn-sm" href="/Restaurant/Delete?id=@row.Id">Delete</a>
+              </td>
+          </tr>  
+        }
+    </tbody>
+
+</table>

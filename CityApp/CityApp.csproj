@@ -74,6 +74,8 @@
 	  <None Remove="Resources\Icons\search.svg" />
 	  <None Remove="Resources\Images\appicon_round.svg" />
 	  <None Remove="Resources\Images\basic_home.svg" />
+	  <None Remove="Resources\Images\placestoeatimagebutton.png" />
+	  <None Remove="Resources\Images\placestoseeimagebutton.png" />
 	  <None Remove="Resources\Images\reportimagebutton.png" />
 	  <None Remove="Resources\logo.png" />
 	  <None Remove="Resources\splashscreen.png" />
@@ -130,10 +132,14 @@
 	  <MauiXaml Update="Views\ViewIncidentsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ViewRestaurantsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="Tables\" />
+	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 

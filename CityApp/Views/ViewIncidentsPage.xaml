@@ -2,38 +2,35 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CityApp.ViewIncidentsPage"
-             xmlns:local="clr-namespace:CityApp.ViewModels"
              xmlns:model="clr-namespace:CityApp.Models"
+             xmlns:service="clr-namespace:CityApp.Services"
              Title="Search">
+    <ContentPage.Resources>
+        <service:Base64ToImageConverter x:Key="Base64ToImageConverter"/>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <CollectionView x:Name="IncidentsCollectionView">
+        <CollectionView x:Name="IncidentsCollectionView" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame Margin="0" Padding="5" BorderColor="LightGray" >
-                        
-                    <Grid Padding="3">
+                        <Grid Padding="3">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
 
-                        </Grid.ColumnDefinitions>
-
+                            </Grid.ColumnDefinitions>
                             <Image Grid.RowSpan="3"
-                                   x:Name="imgsourcepopup"
-                       Source="https://img.freepik.com/free-vector/shining-circle-purple-lighting-isolated-dark-background_1441-2396.jpg"
-                       Aspect="AspectFill"
-                       HeightRequest="60"
-                       WidthRequest="60"
-                       Margin="0,0,10,0">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
-                                </Image.GestureRecognizers>
-                            </Image>
+                                   x:Name="myImage"
+                                   Source="{Binding Image,Converter={StaticResource Base64ToImageConverter}}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="60"
+                                   WidthRequest="60"
+                                   Margin="0,0,10,0"/>
                             <Label Grid.Column="1"
                        Text="{Binding Type}"
                                TextColor="Black"

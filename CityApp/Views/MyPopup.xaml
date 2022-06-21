@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<toolkit:Popup 
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+            xmlns:service="clr-namespace:CityApp.Services"
              Size="300,300"
              x:Class="CityApp.MyPopup"
              >
 
     <VerticalStackLayout>
-        <Image Source="https://img.freepik.com/free-vector/shining-circle-purple-lighting-isolated-dark-background_1441-2396.jpg"
+        <Image x:Name="myImage"
                Aspect="AspectFill"
                HeightRequest="300"
                WidthRequest="300"/>

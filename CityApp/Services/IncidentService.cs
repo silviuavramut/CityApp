@@ -20,8 +20,6 @@ namespace CityApp.Services
             if(incidentInfo.Id == 0)
             {
 
-
-
                 string json = JsonConvert.SerializeObject(incidentInfo);
                 StringContent content = new StringContent(json, Encoding.UTF8,"application/json");
 
@@ -41,7 +39,7 @@ namespace CityApp.Services
                 StringContent content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpClient client = new HttpClient();
-                string url = "http://192.168.1.208:45455/api/Incident/UpdateIncident?id=" +incidentInfo.Id ;
+                string url = "http://192.168.1.208:45455/api/Incident/UpdateIncident?id=" + incidentInfo.Id ;
                 client.BaseAddress = new Uri(url);
                 HttpResponseMessage response = await client.PutAsync("", content);
 
